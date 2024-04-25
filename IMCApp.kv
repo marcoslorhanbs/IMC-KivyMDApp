@@ -1,0 +1,67 @@
+WindowManager:
+    LoginScreen:
+
+<LoginScreen>:
+    name: 'login'
+    LoginUI:
+
+<LoginUI>:
+    #orientation: 'vertical'
+    #spacing: dp(10)
+    size_hint: None, None
+    size: dp(300), dp(375)
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    canvas.before:
+        Color:
+            rgba: 0.12, 0.12, 0.12, 1  # Defina sua cor aqui (R, G, B, alpha)
+            
+        RoundedRectangle:
+            pos: self.pos
+            size: 305, 380
+            radius: [20, 20, 10, 10]
+    MDLabel:
+        text: "IMC Calc"
+        font_size: "30sp"
+        halign: "center"
+        pos_hint: {"center_x": .5, "center_y": .9}
+
+    MDTextField:
+        id: Altura
+        size_hint_x: None
+        width: dp(280)
+        icon_left: "human-male-height"
+        hint_text: "Altura (m, ex: 1.75)"
+        pos_hint: {"center_x": .5, "center_y": .7}
+        font_size: '18sp'
+
+    
+    MDTextField:
+        id: Peso
+        size_hint_x: None
+        width: dp(280)
+        icon_left: "weight-kilogram"
+        hint_text: "Peso (kg, ex: 72.6)"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        font_size: '18sp'
+    
+    MDRaisedButton:
+        text: "Calcule"
+        pos_hint: {"center_x": .5, "center_y": .35}
+        size_hint_x: .5
+        font_size: '16sp'
+        on_release: root.CalculeIMC()
+
+    MDLabel:
+        id: IMC
+        text: ""
+        font_size: "28sp"
+        halign: "center"
+        pos_hint: {"center_x": .5, "center_y": .2}
+    
+    MDLabel:
+        id: classificacao
+        text: ""
+        font_size: "28sp"
+        halign: "center"
+        pos_hint: {"center_x": .5, "center_y": .1}
